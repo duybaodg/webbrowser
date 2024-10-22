@@ -38,22 +38,20 @@ public class Controller {
         webSettings.setJavaScriptEnabled(true);
         myWebViw.setWebViewClient(myWebViewClient);
 
-        input.setOnKeyListener(new View.OnKeyListener() {
-            public boolean onKey(View v, int keyCode, KeyEvent event) {
-                // If the event is a key-down event on the "enter" button
-                if ((event.getAction() == KeyEvent.ACTION_DOWN) &&
-                        (keyCode == KeyEvent.KEYCODE_ENTER)) {
-                    Log.d("INPUT","url entered: "+input.getText());
-                    // Perform action on key press
-                    url = "https://www."+input.getText();
+        input.setOnKeyListener((v, keyCode, event) ->{
+            if ((event.getAction() == KeyEvent.ACTION_DOWN) &&
+                    (keyCode == KeyEvent.KEYCODE_ENTER)) {
+                Log.d("INPUT", "url entered: " + input.getText());
+                // Perform action on key press
+                url = "https://www." + input.getText();
 
-                    history.push(url);
-                    myWebViw.loadUrl(url);
-                    input.setText("");
-                    return true;
-                }
-                return false;
+                history.push(url);
+                myWebViw.loadUrl(url);
+                input.setText("");
+                return true;
             }
+                return false;
+
         });
 
         Button button = (Button) this.activity.findViewById(R.id.button);
