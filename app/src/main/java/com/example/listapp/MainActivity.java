@@ -22,9 +22,4 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         controller = new Controller(this);
     }
-
-    public void onBackPressed(){
-        Log.d("ONBACKPRESSED","Calling controller on back..");
-        controller.onBackPress();
-    }
 }
